@@ -18,12 +18,28 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\ACER\Documents\Course\APPLICATION DEVELOPMENT(1670)\Codes\TrainingFPT\TrainingFPT
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/ACER/Documents/Course/APPLICATION DEVELOPMENT(1670)/Codes/TrainingFPT/TrainingFPT/Views/Account/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/ACER/Documents/Course/APPLICATION DEVELOPMENT(1670)/Codes/TrainingFPT/TrainingFPT/Views/App/Home.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwXEhvbWUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/ACER/Documents/Course/APPLICATION DEVELOPMENT(1670)/Codes/TrainingFPT/TrainingFPT/Views/App/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ACER/Documents/Course/APPLICATION DEVELOPMENT(1670)/Codes/TrainingFPT/TrainingFPT/Views/Category/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ACER/Documents/Course/APPLICATION DEVELOPMENT(1670)/Codes/TrainingFPT/TrainingFPT/Views/Course/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ACER/Documents/Course/APPLICATION DEVELOPMENT(1670)/Codes/TrainingFPT/TrainingFPT/Views/Dashboard/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/ACER/Documents/Course/APPLICATION DEVELOPMENT(1670)/Codes/TrainingFPT/TrainingFPT/Views/Home/Index.cshtml]
@@ -34,12 +50,28 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/ACER/Documents/Course/APPLICATION DEVELOPMENT(1670)/Codes/TrainingFPT/TrainingFPT/Views/Login/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/ACER/Documents/Course/APPLICATION DEVELOPMENT(1670)/Codes/TrainingFPT/TrainingFPT/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/ACER/Documents/Course/APPLICATION DEVELOPMENT(1670)/Codes/TrainingFPT/TrainingFPT/Views/Shared/_LayoutLogin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ACER/Documents/Course/APPLICATION DEVELOPMENT(1670)/Codes/TrainingFPT/TrainingFPT/Views/Shared/_LayoutMain.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRNYWluLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/ACER/Documents/Course/APPLICATION DEVELOPMENT(1670)/Codes/TrainingFPT/TrainingFPT/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ACER/Documents/Course/APPLICATION DEVELOPMENT(1670)/Codes/TrainingFPT/TrainingFPT/Views/Topic/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG9waWNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/ACER/Documents/Course/APPLICATION DEVELOPMENT(1670)/Codes/TrainingFPT/TrainingFPT/Views/_ViewImports.cshtml]

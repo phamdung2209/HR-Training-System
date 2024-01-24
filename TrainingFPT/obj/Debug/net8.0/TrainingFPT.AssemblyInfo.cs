@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TrainingFPT")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+eeb7a8796aae342b48bf86baec5750c8a5d46ab8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0a961f024738af3c82b9f418ff1012bb1a3290a5")]
 [assembly: System.Reflection.AssemblyProductAttribute("TrainingFPT")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TrainingFPT")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
