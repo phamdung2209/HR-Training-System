@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Session
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <base href="./">
@@ -248,6 +251,9 @@
                     <li class="nav-item"><a class="nav-link" href="@Url.Action("index", "dashboard")">Dashboard</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Users</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Settings</a></li>
+                    <li class="nav-item">
+                        Hi: @HttpContextAccessor.HttpContext.Session.GetString("sessionUsername")
+                    </li>
                 </ul>
                 <ul class="header-nav ms-auto">
                     <li class="nav-item">
@@ -320,11 +326,16 @@
                                 <svg class="icon me-2">
                                     <use xlink:href="/training/vendors/coreui/icons/svg/free.svg#cil-lock-locked"></use>
                                 </svg> Lock Account
-                            </a><a class="dropdown-item" href="#">
-                                <svg class="icon me-2">
-                                    <use xlink:href="/training/vendors/coreui/icons/svg/free.svg#cil-account-logout"></use>
-                                </svg> Logout
                             </a>
+                            @using (Html.BeginForm("logout", "login", FormMethod.Post))
+                            {
+                                <button class="dropdown-item" type="submit">
+                                    <svg class="icon me-2">
+                                        <use xlink:href="/training/vendors/coreui/icons/svg/free.svg#cil-account-logout"></use>
+                                    </svg>
+                                    Logout
+                                </button>
+                            }
                         </div>
                     </li>
                 </ul>
@@ -334,9 +345,15 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb my-0 ms-2">
                         <li class="breadcrumb-item">
-                            <!-- if breadcrumb is single--><span>Home</span>
+                            <!-- if breadcrumb is single--><span>
+                                @ViewData["breadcrumb"]
+                            </span>
                         </li>
-                        <li class="breadcrumb-item active"><span>Dashboard</span></li>
+                        <li class="breadcrumb-item active">
+                            <span>
+                                @ViewData["breadcrumb_active"]
+                            </span>
+                        </li>
                     </ol>
                 </nav>
             </div>

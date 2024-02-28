@@ -1,4 +1,6 @@
-﻿@{
+﻿@model TrainingFPT.Models.LoginViewModel
+
+@{
     ViewData["title"] = "Login";
     Layout = "~/Views/Shared/_LayoutLogin.cshtml";
 }
@@ -10,27 +12,37 @@
                 <div class="card-body">
                     <h1 class="row justify-content-center">Login</h1>
                     <p class="text-medium-emphasis">Sign In to your account</p>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text">
-                            <svg class="icon">
-                                <use xlink:href="/training/vendors/coreui/icons/svg/free.svg#cil-user"></use>
-                            </svg>
-                        </span>
-                        <input class="form-control shadow-none" type="text" placeholder="Username">
-                    </div>
-                    <div class="input-group mb-4">
-                        <span class="input-group-text">
-                            <svg class="icon">
-                                <use xlink:href="/training/vendors/coreui/icons/svg/free.svg#cil-lock-locked"></use>
-                            </svg>
-                        </span>
-                        <input class="form-control shadow-none" type="password" placeholder="Password">
-                    </div>
-                    <div class="row">
-                        <div class="col-6">
-                            <button class="btn btn-primary" type="button" id="login">Login</button>
+
+
+                    @using (Html.BeginForm("Handle", "Login", FormMethod.Post))
+                    {
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">
+                                <svg class="icon">
+                                    <use xlink:href="/training/vendors/coreui/icons/svg/free.svg#cil-user"></use>
+                                </svg>
+                            </span>
+                            @* <input class="form-control shadow-none" type="text" placeholder="Username"> *@
+
+                            @Html.TextBoxFor(m => m.Username, new { @class = "form-control shadow-none", @placeholder = "Username" })
                         </div>
-                    </div>
+                        <div class="input-group mb-4">
+                            <span class="input-group-text">
+                                <svg class="icon">
+                                    <use xlink:href="/training/vendors/coreui/icons/svg/free.svg#cil-lock-locked"></use>
+                                </svg>
+                            </span>
+                            @* <input class="form-control shadow-none" type="password" placeholder="Password"> *@
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control shadow-none", @placeholder = "Password" })
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <button class="btn btn-primary" type="submit" id="login">Login</button>
+                            </div>
+                        </div>
+                    }
+
+
                 </div>
             </div>
             <div class="card col-md-5 text-white bg-primary py-5 mb-0">
@@ -45,10 +57,3 @@
         </div>
     </div>
 </div>
-
-<script>
-    var login = document.getElementById("login");
-        login.addEventListener("click", function () {
-        alert("Login Success");
-    });
-</script>

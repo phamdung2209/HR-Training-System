@@ -3,12 +3,16 @@
 *@
 @{
     ViewData["Title"] = "Categories";
+    ViewData["breadcrumb"] = "Home";
+    ViewData["breadcrumb_active"] = "Category";
     Layout = "~/Views/Shared/_LayoutMain.cshtml";
 }
 
 <div class="row">
     <div class="col-12">
-        Category Page
+        <a class="btn btn-primary" href="@Url.Action("add", "category")">
+            Add new category
+        </a>
     </div>
 </div>
 <!-- /.row-->

@@ -1,0 +1,56 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+
+*@
+    @model TrainingFPT.Models.CategoryDetail
+@{
+    ViewData["Title"] = "Add Category";
+    ViewData["breadcrumb"] = "Category";
+    ViewData["breadcrumb_active"] = "Add";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+
+<div>
+    <h1>Add new category</h1>
+    <form asp-action="add" method="post" enctype="multipart/form-data">
+        <div class="form-group row">
+            <div class="col-lg-6">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" asp-for="Name" placeholder="Enter name">
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="col-lg-6">
+                <label for="status">Status</label>
+                <select class="form-control" id="status" asp-for="Status">
+                    <option value="active">Active</option>
+                    <option value="inactive">Inactive</option>
+                </select>
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+
+            <div class="col-lg-6">
+                <label for="parent_id">Parent</label>
+                <select class="form-control" id="parent_id" asp-for="ParentId">
+                    <option value="0">None</option>
+                </select>
+                <span asp-validation-for="ParentId" class="text-danger"></span>
+            </div>
+
+            <div class="col-lg-6">
+                <label for="poster">Poster</label>
+                <input accept="image/*" type="file" class="form-control" id="poster" asp-for="Poster" placeholder="Enter poster">
+                <span asp-validation-for="Poster" class="text-danger"></span>
+            </div>
+
+            <div class="col-12">
+                <label for="description">Description</label>
+                @* <input type="text" class="form-control" id="description" name="description" placeholder="Enter description"> *@
+                <textarea class="form-control" id="description" asp-for="Description" placeholder="Enter description"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Save</button>
+        <button type="button" class="btn btn-secondary mt-3" onclick="window.history.back()">Cancel</button>
+    </form>
+</div>
