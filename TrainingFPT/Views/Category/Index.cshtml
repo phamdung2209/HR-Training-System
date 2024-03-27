@@ -1,18 +1,150 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
+@model TrainingFPT.Models.CategoryModel
 @{
     ViewData["Title"] = "Categories";
     ViewData["breadcrumb"] = "Home";
     ViewData["breadcrumb_active"] = "Category";
     Layout = "~/Views/Shared/_LayoutMain.cshtml";
+
+    bool status = Convert.ToBoolean(TempData["saveStatus"]);
+    bool deleteStatus = Convert.ToBoolean(TempData["deleteStatus"]);
+    bool updateStatus = Convert.ToBoolean(TempData["updateStatus"]);
 }
 
 <div class="row">
-    <div class="col-12">
+    <div class="col-12  table-responsive-md">
         <a class="btn btn-primary" href="@Url.Action("add", "category")">
             Add new category
         </a>
+
+        <form asp-action="Index" method="get" class="my-4 col-12 col-lg-6 d-flex">
+
+            <input type="text" class="form-control" name="search" placeholder="Search category" value="@ViewData["search"]" />
+            <div class="ms-1">
+                <select class="form-select" name="filterStatus">
+                    <option value="">All</option>
+                   @if (ViewData["filterStatus"] != null)
+                    {
+                        @if (ViewData["filterStatus"].ToString() == "Active")
+                        {
+                            <option value="Active" selected>Active</option>
+                            <option value="Inactive">Inactive</option>
+                        }
+                        else
+                        {
+                            <option value="Active">Active</option>
+                            <option value="Inactive" selected>Inactive</option>
+                        }
+                    }
+                    else
+                    {
+                        <option value="Active">Active</option>
+                        <option value="Inactive">Inactive</option>
+                    }
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary ms-2">Search</button>
+
+            @if (ViewData["search"] != null || ViewData["filterStatus"] != null)
+            {
+                <a href="@Url.Action("index", "category")" class="btn btn-danger ms-2 text-white">
+                    Reset
+                </a>
+            }
+        </form>
+
+        @if (TempData["saveStatus"] != null)
+        {
+            if (status)
+            {
+                <div class="alert alert-success mt-3" role="alert">
+                    <strong>Success!</strong> Save category successfully.
+                </div>
+            }
+            else
+            {
+                <div class="alert alert-danger mt-3" role="alert">
+                    <strong>Error!</strong> Save category failed.
+                </div>
+            }
+        }
+
+        @if (TempData["deleteStatus"] != null)
+        {
+            if (deleteStatus)
+            {
+                <div class="alert alert-success mt-3" role="alert">
+                    <strong>Success!</strong> Delete category successfully.
+                </div>
+            }
+            else
+            {
+                <div class="alert alert-danger mt-3" role="alert">
+                    <strong>Error!</strong> Update category failed.
+                </div>
+            }
+        }
+
+        @if (TempData["updateStatus"] != null)
+        {
+            if (updateStatus)
+            {
+                <div class="alert alert-success mt-3" role="alert">
+                    <strong>Success!</strong> Update category successfully.
+                </div>
+            }
+            else
+            {
+                <div class="alert alert-danger mt-3" role="alert">
+                    <strong>Error!</strong> Update category failed.
+                </div>
+            }
+        }
+
+        <table class="table table-striped mt-3 table-bordered table-hover overflow-auto">
+            <thead class="">
+                <tr class="">
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Parent</th>
+                    <th scope="col">Poster</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.CategoryDetailsList)
+                {
+                    <tr>
+                        <th scope="row">@item.Id</th>
+                        <td>@item.Name</td>
+                        <td>@item.Status</td>
+                        <td>@item.ParentId</td>
+                        @* <td>@item.PosterName</td> *@
+
+                        <td>
+                            <img src="/assets/images/@item.PosterName" alt="@item.PosterName" class="img-thumbnail object-fit-cover" style="width: 100px; height: 100px; object-fit: cover;">
+                            @* <img
+                        src="/assets/images/@item.PosterName"
+                        /> *@
+                        </td>
+                        <td class="overflow-hidden text-truncate" style="max-width: 150px;">@item.Description</td>
+                        <td class="gap-5">
+                            <a class="btn btn-primary" style="min-width: 72px" href="@Url.Action("edit", "category", new { id = item.Id })">
+                                Edit
+                            </a>
+                            <a class="btn btn-danger text-white" style="min-width: 72px" href="@Url.Action("delete", "category", new { id = item.Id })">
+                                Delete
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
     </div>
 </div>
 <!-- /.row-->

@@ -5,7 +5,7 @@ namespace TrainingFPT.Models
 {
     public class CategoryModel
     {
-        public List<CategoryDetail>? CategoryDetailsLít { get; set; }
+        public List<CategoryDetail>? CategoryDetailsList { get; set; }
     }
 
     public class CategoryDetail
@@ -18,15 +18,22 @@ namespace TrainingFPT.Models
         public string? Description { get; set; }
 
         [Required(ErrorMessage = "Poster is required!")]
-        [AlowExtensionFile(new string[] { ".jpg", ".png", ".jpeg" })]
+        [AlowExtensionFile(new string[] { ".png", ".jpg", ".jpeg" })]
         [AlowSizeFile(1024 * 1024 * 10)]
         public IFormFile? Poster { get; set; }
+
+        public string? PosterName { get; set; }
 
         [Required(ErrorMessage = "ParentId is required!")]
         public int ParentId { get; set; }
 
         [Required(ErrorMessage = "Status is required!")]
-        public bool Status { get; set; }
+        public string? Status { get; set; }
+
+        public DateTime? Created_at { get; set; }
+        public DateTime? Updated_at { get; set; }
+
+        public DateTime? Deleted_at { get; set; }
 
     }
 }
