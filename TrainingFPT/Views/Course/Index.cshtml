@@ -1,13 +1,83 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
+@model TrainingFPT.Models.CourseModel
 @{
     ViewData["Title"] = "Courses";
+    ViewData["breadcrumb"] = "Home";
+    ViewData["breadcrumb_active"] = "Course";
     Layout = "~/Views/Shared/_LayoutMain.cshtml";
+
+    bool status = Convert.ToBoolean(TempData["saveStatus"]);
 }
 
 <div class="row">
     <div class="col-12">
-        Course Page
+        <a class="btn btn-primary" href="@Url.Action("add", "course")">
+            Add new course
+        </a>
+
+        @if (TempData["saveStatus"] != null)
+        {
+            if (status)
+            {
+                <div class="alert alert-success mt-3" role="alert">
+                    Add new course successfully
+                </div>
+            }
+            else
+            {
+                <div class="alert alert-danger mt-3" role="alert">
+                    Add new course failed
+                </div>
+            }
+        }
+
+        <div class="overflow-auto">
+            <table class="table mt-3 table-striped table-bordered table-hover overflow-auto rounded-3">
+                <thead class="">
+                    <tr class="">
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">
+                            Category
+                        </th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Poster</th>
+                        <th scope="col">Description</th>
+                        <th scope="col" class="col-1">Start Date</th>
+                        <th scope="col" class="col-1">End Date</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.CourseDetailsList!)
+                    {
+                        <tr class="row-course-@item.Id">
+                            <th scope="row">@item.Id</th>
+                            <td>@item.Name</td>
+                            <td>@item.CategoryName</td>
+                            <td>@item.Status</td>
+                            <td>
+                                <img src="/assets/images/@item.ImageUrlString" alt="poster" class="img-fluid" style="max-width: 100px; max-height: 100px;" />
+                            </td>
+                            <td>@item.Description</td>
+                            <td>@item.StartDate</td>
+                            <td>@item.EndDate</td>
+                            <td class="">
+                                <div class="d-flex align-items-center justify-content-between gap-1 w-100 h-100 flex-xl-nowrap flex-wrap">
+                                    <a href="@Url.Action("edit", "course", new { id = item.Id })" class="btn btn-primary w-lg-auto w-100">Edit</a>
+                                    <button id="@item.Id" class="btn btn-danger text-white js-delete-course w-lg-auto w-100">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
+
+@section javascripts {
+    <script src="/js/course.js"></script>
+}

@@ -1,0 +1,85 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model TrainingFPT.Models.CourseDetail
+@{
+    ViewData["Title"] = "Update Course";
+    ViewData["breadcrumb"] = "Course";
+    ViewData["breadcrumb_active"] = "Update";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+
+<div class="row">
+    <div class="col-12">
+        <h1>Update course</h1>
+        <form asp-action="update" method="post" enctype="multipart/form-data">
+            <div class="form-group row">
+
+                <div class="col-lg-6">
+                    <label for="category_id">Category</label>
+                    <select class="form-select" id="category_id" asp-for="CategoryId" asp-items="@(new SelectList(ViewBag.Categories, "Value", "Text"))">
+                    </select>
+                    <span asp-validation-for="CategoryId" class="text-danger"></span>
+                </div>
+
+                <div class="col-lg-6">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" asp-for="Name" placeholder="Enter name">
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+                <div class="col-lg-6">
+                    <label for="status">Status</label>
+                    <select class="form-control" id="status" asp-for="Status">
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                    </select>
+                    <span asp-validation-for="Status" class="text-danger"></span>
+                </div>
+
+                <div class="col-lg-6">
+                    <label for="LikeCourse">Like Course</label>
+                    <input type="text" class="form-control" asp-for="LikeCourse" id="LikeCourse" placeholder="Enter like count">
+                    <span asp-validation-for="LikeCourse" class="text-danger"></span>
+                </div>
+
+                <div class="col-lg-6">
+                    <label for="StarCourse">Star Course</label>
+                    <input type="text" class="form-control" id="StarCourse" asp-for="StarCourse" placeholder="Enter star count">
+                    <span asp-validation-for="StarCourse" class="text-danger"></span>
+                </div>
+
+                <div class="col-lg-6">
+                    <label asp-for="ImageUrl">Poster</label>
+                    <input accept="image/*" type="file" class="form-control" id="poster" asp-for="ImageUrl" placeholder="Enter poster">
+                    <span asp-validation-for="ImageUrl" class="text-danger"></span>
+                </div>
+
+                @* StartDate and EndDate *@
+                <div class="col-lg-6">
+                    <label for="startDate">Start Date</label>
+                    <input type="date" class="form-control" id="startDate" asp-for="StartDate" placeholder="Enter start date">
+                    <span asp-validation-for="StartDate" class="text-danger"></span>
+                </div>
+
+                <div class="col-lg-6">
+                    <label for="endDate">End Date</label>
+                    <input type="date" class="form-control" id="endDate" asp-for="EndDate" placeholder="Enter end date">
+                    <span asp-validation-for="EndDate" class="text-danger"></span>
+                </div>
+
+                <div class="col-12">
+                    <label for="description">Description</label>
+                    <textarea class="form-control" id="description" asp-for="Description" placeholder="Enter description"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+
+                <div class="col-lg-6 col-12 mx-auto my-3">
+                    <img src="/assets/images/@Model.ImageUrlString" alt="@Model.ImageUrlString" class="img-thumbnail">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Save</button>
+            <button type="button" class="btn btn-secondary mt-3" onclick="window.history.back()">Cancel</button>
+        </form>
+    </div>
+</div>
