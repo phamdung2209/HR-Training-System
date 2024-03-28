@@ -60,7 +60,7 @@ namespace TrainingFPT.Models.Queries
             return courses;
         }
 
-        public int AddCourse(string name, int categoryId, string? description, string imageUrl, DateTime? startDate, DateTime? endDate, string status)
+        public int AddCourse(string name, int? categoryId, string? description, string imageUrl, DateTime? startDate, DateTime? endDate, string status)
         {
             int idCourse = 0;
 
@@ -68,8 +68,9 @@ namespace TrainingFPT.Models.Queries
             {
                 conn.Open();
 
-                string sql = "INSERT INTO[Courses]([CategoryId], [Name], [Description], [ImageUrl], [StartDate], [EndDate], [Status], [Created_at]) VALUES(@CategoryId, @Name, @Description, @ImageUrl, @StartDate, @EndDate, @Status, @Created_at) SELECT SCOPE_IDENTITY()";
+                string sql = "INSERT INTO [Courses]([CategoryId], [Name], [Description], [ImageUrl], [StartDate], [EndDate], [Status], [Created_at]) VALUES(@CategoryId, @Name, @Description, @ImageUrl, @StartDate, @EndDate, @Status, @Created_at) SELECT SCOPE_IDENTITY()";
                 SqlCommand cmd = new SqlCommand(sql, conn);
+                
                 cmd.Parameters.AddWithValue("@CategoryId", categoryId);
                 cmd.Parameters.AddWithValue("@Name", name);
                 cmd.Parameters.AddWithValue("@Description", description ?? DBNull.Value.ToString());

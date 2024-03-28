@@ -63,7 +63,7 @@ namespace TrainingFPT.Controllers
                 {
                     string imageUrl = UploadFileHelper.UploadFile(ImageUrl);
                     int IdCourse = new CourseQuery().AddCourse(course.Name, course.CategoryId, course.Description, imageUrl, course.StartDate, course.EndDate, course.Status);
-                    Console.WriteLine(IdCourse);
+                    
                     if (IdCourse > 0)
                     {
                         TempData["saveStatus"] = true;
